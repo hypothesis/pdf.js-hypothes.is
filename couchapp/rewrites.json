@@ -1,5 +1,9 @@
 [
   {
+    "from": "build/*",
+    "to": "build/*"
+  },
+  {
     "from": "web/*",
     "to": "web/*"
   },
