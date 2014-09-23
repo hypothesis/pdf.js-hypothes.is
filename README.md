@@ -9,6 +9,7 @@ we've put together a simple PDF viewing (via PDF.js) and annotating
 Clone this repo, then...
 ```
 cd pdf.js+hypothes.is
+cd viewer
 python -m SimpleHTTPServer
 # if you're on a Mac, do...
 open http://localhost:8000/web/viewer.html
