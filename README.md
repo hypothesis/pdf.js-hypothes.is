@@ -10,10 +10,10 @@ Clone this repo, then...
 ```
 cd pdf.js+hypothes.is
 cd viewer
-python -m SimpleHTTPServer
 # if you're on a Mac, do...
-open http://localhost:8000/web/viewer.html
-# if you're not, open your browser to that URL
+python -m SimpleHTTPServer & open http://localhost:8000/web/viewer.html
+# if you're not, open your browser to that URL, and just run
+python -m SimpleHTTPServer
 ```
 
 The sample PDF should render and Hypothes.is comment bubble icon should be
