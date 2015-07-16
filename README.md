@@ -1,22 +1,29 @@
 # PDF.js + Hypothes.is on your site
 
-Thanks to the kind folks in the [Mozilla PDF.js project](http://github.com/mozilla/pdf.js)
-we've put together a simple PDF viewing (via PDF.js) and annotating
-(via Hypothes.is) web app.
+Thanks to the kind folks in the
+[Mozilla PDF.js project](http://github.com/mozilla/pdf.js)
+we've put together a simple PDF viewer that includes annotation.
+
+This is an "out of the box" PDF.js Viewer with these changes:
+ - added the `<script src="https://hypothes.is/embed.js" ...></script>` code
+ - customized the `viewer.js` code to generate a `rel="canonical"`--as the
+   viewer URL will differ from your PDF's URL, but they should both show the
+   same annotations.
+
+The project is entirely static HTML, JS, and CSS. Enjoy!
 
 ## Try it out!
 
 Clone this repo, then...
 ```
 cd pdf.js+hypothes.is
-cd viewer
 python -m SimpleHTTPServer
 # if you're on a Mac, do...
 open http://localhost:8000/web/viewer.html
 # if you're not, open your browser to that URL
 ```
 
-The sample PDF should render and Hypothes.is comment bubble icon should be
+The sample PDF should render and the Hypothes.is comment bubble icon should be
 visible in the top right corner.
 
 ## Viewing Your Own PDF's
@@ -30,17 +37,6 @@ http://localhost:8000/web/viewer.html?file=%2Fyourpdf.pdf
 
 `%2F` is the URL escaped form of `/`--so this assumes you have a `yourpdf.pdf`
 file hosted at `http://localhost:8000/`
-
-Loading PDF's from other URL's will require the use of a
-[CORS Proxy](https://github.com/mozilla/pdf.js/wiki/Frequently-Asked-Questions#can-i-load-a-pdf-from-another-server-cross-domain-request)
-...sadly.
-
-## Annotating
-
-1. Click the comment bubble icon in the top right.
-2. Click the "Sign in" link.
-3. Sign in or click the "Create an account" tab.
-4. Annotate!
 
 ## License
 
