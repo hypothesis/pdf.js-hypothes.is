@@ -16,8 +16,12 @@ The project is entirely static HTML, JS, and CSS. Enjoy!
 
 Clone this repo, then...
 ```
+# Navigate to the project's root directory
 cd pdf.js+hypothes.is
+# If using Python 2, start a simple HTTP server...
 python -m SimpleHTTPServer
+# ...or if using Python 3
+python -m http.server 8000
 # if you're on a Mac, do...
 open http://localhost:8000/web/viewer.html
 # if you're not, open your browser to that URL
