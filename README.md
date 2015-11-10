@@ -1,16 +1,21 @@
 # PDF.js + Hypothes.is on your site
 
-Thanks to the kind folks in the
-[Mozilla PDF.js project](http://github.com/mozilla/pdf.js)
-we've put together a simple PDF viewer that includes annotation.
-
-This is an "out of the box" PDF.js Viewer with these changes:
+This is an "out of the box" [PDF.js Viewer]((http://github.com/mozilla/pdf.js)) with these changes:
  - added the `<script src="https://hypothes.is/embed.js" ...></script>` code
  - customized the `viewer.js` code to generate a `rel="canonical"`--as the
    viewer URL will differ from your PDF's URL, but they should both show the
    same annotations.
 
 The project is entirely static HTML, JS, and CSS. Enjoy!
+
+## When to use this code
+
+There are times when the Hypothes.is browser extension (or the [Hypothes.is Via proxy](http://via.hypothes.is/)
+can't "reach" the PDF in a page because it's served in an `<iframe>` or `<embed>` tag. This code can be
+hosted alongside your PDF's to provide the necessary viewer environment and directly embed Hypothes.is,
+so that it can be used within the `<iframe>` to annotate the PDF.
+
+Simply serve the `viewer.html?file=` URL's mentioned below via the `<iframe src="">` in your CMS, site, or code.
 
 ## Try it out!
 
