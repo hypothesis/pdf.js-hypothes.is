@@ -39,7 +39,7 @@
   margin: -1px;
   padding: 1px;
 
-  background-color: rgb(180, 0, 170);
+  background-color: rgba(180, 0, 170, 0.5);
   border-radius: 4px;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .textLayer .highlight.selected {
-  background-color: rgb(0, 100, 0);
+  background-color: rgba(0, 100, 0, 0.5);
 }
 
 .textLayer ::selection { background: rgb(0,0,255); }
