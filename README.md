@@ -1,44 +1,66 @@
-# PDF.js + Hypothes.is on your site
+# PDF.js viewer with Hypothesis
 
-This is an "out of the box" [PDF.js Viewer]((http://github.com/mozilla/pdf.js)) with these changes:
- - added the `<script src="https://hypothes.is/embed.js" ...></script>` code
- - customized the `viewer.js` code to generate a `rel="canonical"`--as the
-   viewer URL will differ from your PDF's URL, but they should both show the
-   same annotations.
+A web PDF viewer (PDF.js) with Hypothesis added.
 
-The project is entirely static HTML, JS, and CSS. Enjoy!
+This is a copy of Mozilla's [PDF.js
+viewer](https://mozilla.github.io/pdf.js/web/viewer.html) with Hypothesis
+annotation tools added.
 
-## When to use this code
+## When to use this project
 
-There are times when the Hypothes.is browser extension (or the [Hypothes.is Via proxy](http://via.hypothes.is/)
-can't "reach" the PDF in a page because it's served in an `<iframe>` or `<embed>` tag. This code can be
-hosted alongside your PDF's to provide the necessary viewer environment and directly embed Hypothes.is,
-so that it can be used within the `<iframe>` to annotate the PDF.
+If you want to embed or link to a PDF on your site with annotation using
+Hypothesis enabled, the easiest way is using our proxy server: `https://via.hypothes.is/<PDF URL>`.
 
-Simply serve the `viewer.html?file=` URL's mentioned below via the `<iframe src="">` in your CMS, site, or code.
+For example, to embed a PDF on your site using Hypothesis, you can add an HTML
+snippet such as the following to your page:
 
-## Try it out!
-
-Clone this repo, then...
+```html
+<iframe width="800" height="600" src="https://via.hypothes.is/https://publisher.com/article.pdf">
+</iframe>
 ```
+
+There are situations where the proxy server may not be suitable:
+
+- If the PDF is not publicly accessible (for example, it is behind a paywall,
+  requires a login or is on a corporate intranet)
+- If you want to make customizations to the PDF viewer (for example, to add
+  custom analytics scripts or change the configuration of the Hypothesis
+  client)
+- If you are running your own instance of the Hypothesis annotation server
+
+If any of the above apply, this project may be useful.
+
+To use it, add the files from this repository to your site and embed or link to
+`viewer/web/viewer.html?file=<PDF URL>`.
+
+## Usage
+
+Clone this repository, then run:
+
+```sh
 # Navigate to the project's root directory
 cd pdf.js+hypothes.is
+
 # If using Python 2, start a simple HTTP server...
 python -m SimpleHTTPServer
 # ...or if using Python 3
 python -m http.server 8000
-# if you're on a Mac, do...
-open http://localhost:8000/web/viewer.html
-# if you're not, open your browser to that URL
+
+# Then run the command below or navigate to the URL in your browser
+open http://localhost:8000/viewer/web/viewer.html
 ```
 
-The sample PDF should render and the Hypothes.is comment bubble icon should be
-visible in the top right corner.
+The default PDF should render and the Hypothesis annotation tools will appear
+when you select text.
 
-## Viewing Your Own PDF's
+## Viewing Your Own PDFs
 
-The `viewer.html` file supports a `file` query parameter, so requesting a
-different PDF hosted under this same domain, looks like this:
+The `viewer/web/viewer.html` file supports a `file` query parameter which
+specifies the URL of a PDF to load. This PDF must either be hosted on the same
+origin or be served with [appropriate headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+that allow it to be loaded from the viewer's origin.
+
+For example:
 
 ```
 http://localhost:8000/web/viewer.html?file=%2Fyourpdf.pdf
@@ -49,9 +71,9 @@ file hosted at `http://localhost:8000/`
 
 ## License
 
-PDF.js and the viewer bits (in `build` and `web`) are licensed under the
-Apache License 2.0.
+The PDF.js files in `viewer/` are licensed under the Apache License 2.0.
 
-Hypothes.is embed.js is currently loaded from the live web service, so there's
-no additional licensing needed (checkout the [hypothesis/h](http://github.com/hypothesis/h)
-project if you'd like to host your own (`h` is BSD licensed).
+The Hypothesis annotation tools are loaded from the public service at
+https://hypothes.is, so there's no additional licensing needed. See the
+[hypothesis/h](http://github.com/hypothesis/h) project if you'd like to host
+your own.
