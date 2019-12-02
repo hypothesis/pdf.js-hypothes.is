@@ -39,7 +39,7 @@ Clone this repository, then run:
 
 ```sh
 # Navigate to the project's root directory
-cd pdf.js+hypothes.is
+cd pdf.js-hypothes.is
 
 # If using Python 2, start a simple HTTP server...
 python -m SimpleHTTPServer
