@@ -14,7 +14,19 @@ set -eu
 # 3. Commit the changes to the `src/vendor/` directory
 
 DEST_DIR=viewer/
-PREFIX=pdf.js-gh-pages
+
+# PDF.js comes in two flavors, one for modern browsers and one for older browsers,
+# known as the "legacy" build.
+#
+# The versions supported by the legacy build are listed at
+# https://github.com/mozilla/pdf.js/wiki/Frequently-Asked-Questions#which-browsers-are-supported
+# and as of September 2021 these align closely with what the client supports
+# (see https://github.com/hypothesis/client/issues/3744).
+#
+# In the extracted tarball, the modern version is in pdf.js-gh-pages/ and the
+# legacy version is in pdf.js-gh-pages/legacy/.
+PREFIX=pdf.js-gh-pages/legacy
+PREFIX_DEPTH=2
 COMPONENTS="$PREFIX/build $PREFIX/web $PREFIX/LICENSE"
 
 # Download the latest version of the PDF.js library and viewer.
@@ -23,7 +35,7 @@ mkdir -p $DEST_DIR
 
 # Get the latest build of the viewer
 curl -L https://github.com/mozilla/pdf.js/archive/gh-pages.tar.gz \
-  | tar -xz --directory $DEST_DIR --strip-components=1 $COMPONENTS
+  | tar -xz --directory $DEST_DIR --strip-components=$PREFIX_DEPTH $COMPONENTS
 
 # Remove the check that the PDF being loaded is from the same origin as the
 # viewer.
