@@ -1,7 +1,7 @@
 'use strict';
 
-// nb. After making changes to this file, the copy in the viewer/web/ dir
-// must be updated.
+// Script that loads the Hypothesis client after PDF.js is initialized.
+// After making changes to this file, copy it to viewer/web/pdfjs-init.js.
 
 // Listen for `webviewerloaded` event to configure the viewer after its files
 // have been loaded but before it is initialized.
@@ -17,7 +17,6 @@ try {
 }
 
 function onViewerLoaded() {
-  // Wait for the PDF viewer to be fully initialized and then load the Hypothesis client.
   PDFViewerApplication.initializedPromise.then(() => {
     const embedScript = document.createElement('script');
     embedScript.src = 'https://hypothes.is/embed.js';
