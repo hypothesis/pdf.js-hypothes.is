@@ -63,7 +63,7 @@ that allow it to be loaded from the viewer's origin.
 For example:
 
 ```
-http://localhost:8000/web/viewer.html?file=%2Fyourpdf.pdf
+http://localhost:8008/viewer/web/viewer.html?file=%2Fyourpdf.pdf
 ```
 
 `%2F` is the URL escaped form of `/`--so this assumes you have a `yourpdf.pdf`
