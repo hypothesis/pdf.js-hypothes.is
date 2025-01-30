@@ -77,3 +77,10 @@ The Hypothesis annotation tools are loaded from the public service at
 https://hypothes.is, so there's no additional licensing needed. See the
 [hypothesis/h](http://github.com/hypothesis/h) project if you'd like to host
 your own.
+
+## Updating PDF.js
+
+The `tools/update-pdfjs.py` script can be used to update PDF.js to a newer version.
+
+**Warning:** New PDF.js releases may have changes that make them incompatible
+with the Hypothesis client. Be sure to test carefully after updating.
