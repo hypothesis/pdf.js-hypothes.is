@@ -80,7 +80,7 @@ your own.
 
 ## Updating PDF.js
 
-The `tools/update-pdfjs` script can be used to update PDF.js to a newer version.
+The `tools/update-pdfjs.py` script can be used to update PDF.js to a newer version.
 
 **Warning:** New PDF.js releases may have changes that make them incompatible
 with the Hypothesis client. Be sure to test carefully after updating.
